@@ -13,6 +13,8 @@ Game = LevelOne;
 %%Logic of game
 while Game == LevelOne
     drawScene(BombGameScreen,BombGamedisplay)
+    title('level one')
+    xlabel('Pick one card')
     [x,y] = getMouseInput(BombGameScreen);
     if x == 2 && y == 1
         close all
