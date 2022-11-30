@@ -10,7 +10,7 @@ BombGamedisplay = [7,7,7,7;7,7,7,7]
 drawScene(BombGameScreen,BombGamedisplay)
 
 Game = LevelOne;
-
+%%Logic of game
 while Game == LevelOne
     drawScene(BombGameScreen,BombGamedisplay)
     [x,y] = getMouseInput(BombGameScreen);
@@ -23,3 +23,4 @@ while Game == LevelOne
     end
 end
 while Game == LevelTwo
+end
