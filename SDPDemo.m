@@ -249,4 +249,5 @@ end
 
 while gameover == 1
     fprintf ('nice job playing\n')
+    break
 end
