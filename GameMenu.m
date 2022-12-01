@@ -33,10 +33,16 @@ close all
 end
 if x == 2 && y == 2;
     fprintf('Initiating Guessing Game!\n\n')
+    pause(0.25)
     menurunning = false;
     menurunning = guessinggame(username);
 end
-if 
+if x == 1 && y == 2;
+    fprintf('Inititializing Minesweeper!\n\n')
+    pause(0.25)
+    menurunning = false;
+    menurunning = BombGame(username)
+end
 
 end
 

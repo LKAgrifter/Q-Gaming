@@ -1,6 +1,7 @@
 function menurun = bombgame(username)
 
 clc
+close all
 
 %Define Screen
 BombGameScreen = simpleGameEngine('MinesweeperSprite.png',16,16,5,[255,255,255]);
@@ -58,8 +59,9 @@ while playing == true
             if spotcounter > 0
                 BombGamedisplay(x,y) = (8+spotcounter)
             else
-                BombGamedisplay(x,y) = (1)
+                BombGamedisplay(x,y) = (5)
             end
+            drawScene(BombGameScreen,BombGamedisplay)
 
 
         elseif BombGamedisplay(x,y) == 1 && z == 3
@@ -69,7 +71,6 @@ while playing == true
             end
 
         end
-        drawScene(BombGameScreen,BombGamedisplay)
         
 %         if length(k) == 1
 %             if k == 'q'
