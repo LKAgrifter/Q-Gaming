@@ -27,7 +27,7 @@ drawScene(screen,display);
 
 if x == 2 && y == 1;
 close all
-fprintf('\nHave a good day!\n')
+fprintf('\nHave a good day %s!\n',username)
 menurunning = false;
 close all
 end

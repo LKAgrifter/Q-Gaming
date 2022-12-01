@@ -4,11 +4,12 @@ function menurun = guessinggame(username)
 
 %Clear last figure
 close all
+clc
 
 %Explain the game
-
+fprintf('%s, welcome to the number guessing game!\n',username)
 input(['This game will display 7 cards. Pick a number between 1 and 100. \n' ...
-    'If your number is on the card shown, press y. \nIf your number is not on the card, press enter to continue \nIf you want to quit while the game is running, press q'])
+    'If your number is on the card shown, press y. \nIf your number is not on the card, press n \nIf you want to quit while the game is running, press q \npress enter to continue \n'])
 
 %Define card indexes
 cards = [1,2,3,4,5,6,7];
@@ -20,7 +21,6 @@ display = [9];
 drawScene(screenguess,display);
 title('Q Games Launcher');
 running = true;
-
 
 
 %% making the running loop
@@ -37,9 +37,13 @@ cards_rand = cards(randperm(length(cards)));
 
 %show the cards
 for i = 1:1:length(cards);
+    %Clearing command window because I like the way it looks :)
+    clc
+    
     i = cards_rand(i);
     display = cardspostion(i);
     drawScene(screenguess,display);
+    fprintf('hmmm. I wonder if your number is %i?',randi(100))
     while true;
         
         %always need keyboard input
@@ -62,36 +66,38 @@ for i = 1:1:length(cards);
                 break
                 
                 %If q is pressed, return to the main menu
-            elseif k == 'q';
+            elseif k == 'q'
                     running = false;
                     menurun = true;
+                    clc
                     close all
                     return
             end
         end
-    if running == false;
+    if running == false
         break
     end
     end
 end
 
 %Display Number at the end
+    clc
     if yournumber <=100 && yournumber>=1
-    fprintf("\nI bet your number was %.i!", yournumber)
-    fprintf('Press Space to play again! Press q to return to menu')
-    xlabel(['Number was ',num2str(yournumber),'! Press Space to play again! Press q to return to menu'])
+    fprintf("\n%s, I bet your number was %.i!\n", username,yournumber)
+    fprintf('Press Space to play again! Press q to return to menu\n')
+    xlabel([username,', your number was ',num2str(yournumber),'! Press Space to play again! Press q to return to menu'])
     
     else
-    fprinf('I bet you lied to me! Your number was Not on one of those cards!!! Press Space to play again! Press q to return to menu')
+    fprintf('%s I bet you lied to me! Your number was NOT on one of those cards!!! OR maybe you didn''t say it was on any of the cards! \nPress Space to play again! Press q to return to menu\n',username)
     xlabel('Lying is bad! Press Space to play again! Press q to return to menu.')
     end
 
 %Prompt to play again
 
-while true;
+while true
         k = getKeyboardInput(screenguess);
-        if length(k) == 1;
-            if k == 'q';
+        if length(k) == 1
+            if k == 'q'
                 running = false;
                 menurun = true;
                 close all;
@@ -103,6 +109,7 @@ while true;
             end
         end
 end
+clc
 
 %End main While loop
 end
