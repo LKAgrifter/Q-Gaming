@@ -1,4 +1,4 @@
-function menurun = guessinggame(inputArg1,inputArg2)
+function menurun = guessinggame(username)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 
