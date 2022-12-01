@@ -246,4 +246,5 @@ pause(2)
 end
 
 while gameover == 1
-    fprintf ('you made it to')
+    fprintf ('nice job playing\n')
+end
