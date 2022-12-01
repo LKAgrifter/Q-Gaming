@@ -1,11 +1,61 @@
+function menurun = bombgame(username)
+
 clc
 
+%Define Screen
 BombGameScreen = simpleGameEngine('MinesweeperSprite.png',16,16,5,[255,255,255]);
 BombGamedisplay = ones(10)
 
+numberbombs = input("How many bombs would you like to have? ")
 
-%while BombGamedisplay==
-%[11:43 AM]
-%how would
-%[11:43 AM]
-%I replace some of the ones with mines?
+%Lets place some bombs
+for i = 1:1:numberbombs
+    x = randi(10)
+    y = randi(10)
+    BombGamedisplay(y,x) = 2
+end
+drawScene(BombGameScreen,BombGamedisplay)
+
+numflags = 0 
+
+%Are we still playing?
+playing = true;
+while playing == true
+    %Loop to make the game portion of the game work
+    while true
+        [x,y,z] = getMouseInput(BombGameScreen);
+        
+        %Let's uncover the bombs
+        if BombGamedisplay(x,y) == 2 && z == 1
+            BombGamedisplay(x,y) = 8
+            break
+
+        elseif  BombGamedisplay(x,y) == 2 && z == 3
+            if numflags < numberbombs
+                BombGamedisplay(x,y) = 7
+                numflags = numflags + 1
+            end
+        
+        %For the non-bomb spots        
+        elseif BombGamedisplay(x,y) == 1 && z == 1
+            BombGamedisplay(x,y) = 5
+        elseif BombGamedisplay(x,y) == 1 && z == 3
+            if numflags < numberbombs
+                BombGamedisplay(x,y) = 3
+                numflags = numflags + 1
+            end
+
+        end
+        drawScene(BombGameScreen,BombGamedisplay)
+        
+%         if length(k) == 1
+%             if k == 'q'
+%                 menurun = true
+%                 close all
+%                 return
+%             end
+        end
+    end
+    drawScene(BombGameScreen,BombGamedisplay)
+    input('Play Again?')
+end
