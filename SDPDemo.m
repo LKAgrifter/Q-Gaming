@@ -79,7 +79,7 @@ pause(2)
     w = randi(10);
     q = randi(10);
     
-    if x == r || x == e || x == w && y == 1 || y == 2
+    if x == r || x == e || x == w || x == q && y == 1 || y == 2
         fprintf('You made it to level 4\n')
         gameover = 1;
         break
@@ -89,5 +89,27 @@ pause(2)
     end
 end
 
+while Game == 5
+pause(2)
+    figure (1)
+    drawScene(BombGameScreen,BombGamedisplay)
+    title('level five')
+    xlabel('Pick one card')
+    [x,y] = getMouseInput(BombGameScreen);
+    r = randi(10);
+    e = randi(10);
+    w = randi(10);
+    q = randi(10);
+    a = randi(10);
+    
+    if x == r || x == e || x == w || x == q || x == a&& y == 1 || y == 2
+        fprintf('You made it to level 5\n')
+        gameover = 1;
+        break
+    else
+        Game = 6;
+        break   
+    end
+end
 
 
