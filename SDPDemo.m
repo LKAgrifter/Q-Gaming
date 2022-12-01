@@ -3,6 +3,8 @@ clear all
 close all
 
 
+%%Game Setup
+%set the display up
 BombGameScreen = simpleGameEngine('retro_cards.png',16,16,10,[255,255,255]);
 BombGamedisplay = [7,7,7,7,7,7,7,7,7,7;7,7,7,7,7,7,7,7,7,7];
 drawScene(BombGameScreen,BombGamedisplay)
