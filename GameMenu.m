@@ -21,15 +21,15 @@ while menurunning == true
 drawScene(screen,display);
 [x,y] = getMouseInput(screen);
 
-if x == 2 && y == 1
+if x == 2 && y == 1;
 close all
 fprintf('Have a good day!\n')
 menurunning = false;
 close all
 end
-if x == 2 && y == 2
+if x == 2 && y == 2;
     fprintf('Initiating Guessing Game!\n')
-    menurunning = false
+    menurunning = false;
     menurunning = guessinggame(1,2)
 end
 
