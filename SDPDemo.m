@@ -113,3 +113,137 @@ pause(2)
 end
 
 
+while Game == 6
+pause(2)
+    figure (1)
+    drawScene(BombGameScreen,BombGamedisplay)
+    title('level six')
+    xlabel('Pick one card')
+    [x,y] = getMouseInput(BombGameScreen);
+    r = randi(10);
+    e = randi(10);
+    w = randi(10);
+    q = randi(10);
+    a = randi(10);
+    s = randi(10);
+    
+    if x == r || x == e || x == w || x == q || x == a || x == s && y == 1 || y == 2
+        fprintf('You made it to level 6\n')
+        gameover = 1;
+        break
+    else
+        Game = 7;
+        break   
+    end
+end
+
+
+while Game == 7
+pause(2)
+    figure (1)
+    drawScene(BombGameScreen,BombGamedisplay)
+    title('level seven')
+    xlabel('Pick one card')
+    [x,y] = getMouseInput(BombGameScreen);
+    r = randi(10);
+    e = randi(10);
+    w = randi(10);
+    q = randi(10);
+    a = randi(10);
+    s = randi(10);
+    d = randi(10);
+    
+    if x == r || x == e || x == w || x == q || x == a || x == s || x == d && y == 1 || y == 2
+        fprintf('You made it to level 7\n')
+        gameover = 1;
+        break
+    else
+        Game = 8;
+        break   
+    end
+end
+
+
+while Game == 8
+pause(2)
+    figure (1)
+    drawScene(BombGameScreen,BombGamedisplay)
+    title('level eight')
+    xlabel('Pick one card')
+    [x,y] = getMouseInput(BombGameScreen);
+    r = randi(10);
+    e = randi(10);
+    w = randi(10);
+    q = randi(10);
+    a = randi(10);
+    s = randi(10);
+    d = randi(10);
+    h = randi(10);
+    
+    if x == r || x == e || x == w || x == q || x == a || x == s || x == d || x == h && y == 1 || y == 2
+        fprintf('You made it to level 8\n')
+        gameover = 1;
+        break
+    else
+        Game = 9;
+        break   
+    end
+end
+
+while Game == 9
+pause(2)
+    figure (1)
+    drawScene(BombGameScreen,BombGamedisplay)
+    title('level nine')
+    xlabel('Pick one card')
+    [x,y] = getMouseInput(BombGameScreen);
+    r = randi(10);
+    e = randi(10);
+    w = randi(10);
+    q = randi(10);
+    a = randi(10);
+    s = randi(10);
+    d = randi(10);
+    h = randi(10);
+    k = randi(10);
+    
+    if x == r || x == e || x == w || x == q || x == a || x == s || x == d || x == h || x == k && y == 1 || y == 2
+        fprintf('You made it to level 9\n')
+        gameover = 1;
+        break
+    else
+        Game = 10;
+        break   
+    end
+end
+
+while Game == 10
+pause(2)
+    figure (1)
+    drawScene(BombGameScreen,BombGamedisplay)
+    title('level ten')
+    xlabel('Pick one card')
+    [x,y] = getMouseInput(BombGameScreen);
+    r = randi(10);
+    e = randi(10);
+    w = randi(10);
+    q = randi(10);
+    a = randi(10);
+    s = randi(10);
+    d = randi(10);
+    h = randi(10);
+    k = randi(10);
+    l = randi(10);
+    
+    if x == r || x == e || x == w || x == q || x == a || x == s || x == d || x == h || x == k || x == l && y == 1 || y == 2
+        fprintf('You made it to level 10\n')
+        gameover = 1;
+        break
+    else
+        Game = 10;
+        break   
+    end
+end
+
+while gameover == 1
+    fprintf ('you made it to')
