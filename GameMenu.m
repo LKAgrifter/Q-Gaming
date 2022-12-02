@@ -43,8 +43,9 @@ if x == 1 && y == 2
     fprintf('Inititializing Minesweeper!\n\n')
     pause(0.25)
     menurunning = false;
-    menurunning = BombGame(username);
+    menurunning = BombGame(username)
 end
+fprintf('Welcome Back\n')
 
 end
 

@@ -19,15 +19,16 @@ while playing == true
     %making sure the gridsize is bigger than 0
     gridsize = 0;
     while gridsize <= 1 
-        gridsize= input("How big do you want the grid to be? It must be larger than 1",'i');
+        gridsize= input("How big do you want the grid to be? It must be larger than 1. : ");
     end
 
     %making sure the numberbombs is greater than 0
     numberbombs = 0;
-    while numberbombs <= 0 | numberbombs > gridsize^2
-        numberbombs = input("How many bombs would you like to have? It must be smaller than the grid size squared",'i');
+    while numberbombs <= 0 | numberbombs >= gridsize.^2
+        numberbombs = input("How many bombs would you like to have? It must be smaller than the grid size squared. : ");
     end
     
+    numberbombs
     %Intitializing the early game
     BombGamedisplay = ones(gridsize);
 
@@ -35,8 +36,13 @@ while playing == true
     for i = 1:1:numberbombs
         x = randi(gridsize);
         y = randi(gridsize);
+        while BombGamedisplay(x,y) ==2
+            x = randi(gridsize);
+            y = randi(gridsize);
+        end
         BombGamedisplay(y,x) = 2;
     end
+    BombGamedisplay
 drawScene(BombGameScreen,BombGamedisplay)
 title('')
 
@@ -114,6 +120,7 @@ numflags = 0;
             if k == 'q'
                 close all
                 clc
+                menurun = true
                 return
             end
         elseif length(k) == 5
@@ -131,6 +138,7 @@ numflags = 0;
             if k == 'q'
                 close all
                 clc
+                menurun = true
                 return
             end
         elseif length(k) == 5
