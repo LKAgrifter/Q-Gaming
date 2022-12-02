@@ -12,8 +12,8 @@ username = input('Please type a username: ','s');
 %The menu is a 4x4 grid of buttons, with an exit, game 1, game 2, and game
 %3 button, game two and game three are both variation of the guessing game
 
-screen = simpleGameEngine('retro_cards.png',16,16,5,[255,255,255]);
-display = [7,5;4,3];
+screen = simpleGameEngine('menusprites.png',130,130,2,[255,255,255]);
+display = [4,2;3,1];
 drawScene(screen,display);
 title('Q Games Launcher')
 
