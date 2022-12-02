@@ -22,30 +22,30 @@ title('Q Games Launcher')
 menurunning = true;
 
 while menurunning == true
-clc
+    clc
 
-drawScene(screen,display);
-[x,y] = getMouseInput(screen);
+    drawScene(screen,display);
+    [x,y] = getMouseInput(screen);
 
-if x == 2 && y == 1
-close all
-fprintf('\nHave a good day %s!\n',username)
-menurunning = false;
-close all
-end
-if x == 2 && y == 2
-    fprintf('Initiating Guessing Game!\n\n')
-    pause(0.25)
-    menurunning = false;
-    menurunning = guessinggame(username);
-end
-if x == 1 && y == 2
-    fprintf('Inititializing Minesweeper!\n\n')
-    pause(0.25)
-    menurunning = false;
-    menurunning = BombGame(username)
-end
-fprintf('Welcome Back\n')
+    if x == 2 && y == 1
+        close all
+        fprintf('\nHave a good day %s!\n',username)
+        menurunning = false;
+        close all
+    end
+    if x == 2 && y == 2
+        fprintf('Initiating Guessing Game!\n\n')
+        pause(0.25)
+        menurunning = false;
+        menurunning = guessinggame(username);
+    end
+    if x == 1 && y == 2
+        fprintf('Inititializing Minesweeper!\n\n')
+        pause(0.25)
+        menurunning = false;
+        menurunning = BombGame(username)
+    end
+    fprintf('Welcome Back\n')
 
 end
 

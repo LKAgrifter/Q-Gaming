@@ -15,10 +15,10 @@ ingame = true;
 wincounter = 0;
 
 while playing == true
-    
+
     %making sure the gridsize is bigger than 0
     gridsize = 0;
-    while gridsize <= 1 
+    while gridsize <= 1
         gridsize= input("How big do you want the grid to be? It must be larger than 1. : ");
     end
 
@@ -27,7 +27,7 @@ while playing == true
     while numberbombs <= 0 | numberbombs >= gridsize.^2
         numberbombs = input("How many bombs would you like to have? It must be smaller than the grid size squared. : ");
     end
-    
+
     numberbombs;
     %Intitializing the early game
     BombGamedisplay = ones(gridsize);
@@ -42,19 +42,19 @@ while playing == true
         end
         BombGamedisplay(y,x) = 2;
     end
-drawScene(BombGameScreen,BombGamedisplay)
-title('')
+    drawScene(BombGameScreen,BombGamedisplay)
+    title('')
 
-numflags = 0; 
-    
-    
-    
+    numflags = 0;
+
+
+
     %Loop to make the game portion of the game work
     while ingame == true
         %Define variables
-        
+
         [x,y,z] = getMouseInput(BombGameScreen);
-        
+
         %Let's uncover the bombs
         if BombGamedisplay(x,y) == 2 && z == 1
             BombGamedisplay(x,y) = 8;
@@ -70,11 +70,11 @@ numflags = 0;
             BombGamedisplay(x,y) = 2;
             numflags = numflags - 1;
 
-        
-        %For the non-bomb spots        
+
+            %For the non-bomb spots
         elseif BombGamedisplay(x,y) == 1 && z == 1
             spotcounter = 0;
-            
+
             %Checking around the spot to find what the number will be
             for a = -1:1:1
                 a = x + a;
@@ -87,7 +87,7 @@ numflags = 0;
                     end
                 end
             end
-            
+
             % Draw the clicked spot
             if spotcounter > 0
                 BombGamedisplay(x,y) = (8+spotcounter);
@@ -96,29 +96,29 @@ numflags = 0;
             end
             drawScene(BombGameScreen,BombGamedisplay)
 
-        %If you right click, add a flag, as long as there are less flags
-        %than the number of bombs
+            %If you right click, add a flag, as long as there are less flags
+            %than the number of bombs
         elseif BombGamedisplay(x,y) == 1 && z == 3
             if numflags < numberbombs
                 BombGamedisplay(x,y) = 3;
                 numflags = numflags + 1;
             end
         elseif BombGamedisplay(x,y) == 3 && z == 3
-           BombGamedisplay(x,y) = 1;
-           numflags = numflags - 1;
+            BombGamedisplay(x,y) = 1;
+            numflags = numflags - 1;
 
         end
         drawScene(BombGameScreen,BombGamedisplay)
 
-    if numberbombs == sum(BombGamedisplay(:) == 7)
-        win = true;
-        wincounter = wincounter + 1;
-        ingame = false;
+        if numberbombs == sum(BombGamedisplay(:) == 7)
+            win = true;
+            wincounter = wincounter + 1;
+            ingame = false;
+        end
+        drawScene(BombGameScreen,BombGamedisplay)
     end
-    drawScene(BombGameScreen,BombGamedisplay)
-    end
-    
-    % Winning yes vs no, and then asking to play again or quit. 
+
+    % Winning yes vs no, and then asking to play again or quit.
     if win == false
         title('You Lost, Press Space to Play Again, or A to Return To Menu')
         k = getKeyboardInput(BombGameScreen);
@@ -155,7 +155,7 @@ numflags = 0;
 
             end
         end
-    
-    % End of small while loop
+
+        % End of small while loop
     end
 end

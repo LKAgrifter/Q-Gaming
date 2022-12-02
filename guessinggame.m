@@ -26,75 +26,75 @@ running = true;
 %% making the running loop
 while running == true;
 
-%Reset xlabel if looped
-xlabel('')
+    %Reset xlabel if looped
+    xlabel('')
 
-%Set the number guesser value
-yournumber = 0;
+    %Set the number guesser value
+    yournumber = 0;
 
-%Randomize the cards initially 
-cards_rand = cards(randperm(length(cards)));
+    %Randomize the cards initially
+    cards_rand = cards(randperm(length(cards)));
 
-%show the cards
-for i = 1:1:length(cards)
-    %Clearing command window because I like the way it looks :)
-    clc
-    
-    i = cards_rand(i);
-    display = cardspostion(i);
-    drawScene(screenguess,display);
-    fprintf('hmmm. I wonder if your number is %i?',randi(100))
-    while true;
-        
-        %always need keyboard input
-        k = getKeyboardInput(screenguess);
+    %show the cards
+    for i = 1:1:length(cards)
+        %Clearing command window because I like the way it looks :)
+        clc
 
-        %Check to see if the number is on the card
-        if length(k) == 1;
-            
-            %Add new number to your number if it's on the card, Then break
-            %the loop to load the next card
-            if k == 'y';
-                yournumber = yournumber + cardsvalue(i);
-                pause(0.5);
-                break
+        i = cards_rand(i);
+        display = cardspostion(i);
+        drawScene(screenguess,display);
+        fprintf('hmmm. I wonder if your number is %i?',randi(100))
+        while true;
 
-            %Break the loop and allow it to load the next card     
-            elseif k == 'n';
-                answering = false;
-                pause(0.5);
-                break
-                
-                %If q is pressed, return to the main menu
-            elseif k == 'q'
+            %always need keyboard input
+            k = getKeyboardInput(screenguess);
+
+            %Check to see if the number is on the card
+            if length(k) == 1;
+
+                %Add new number to your number if it's on the card, Then break
+                %the loop to load the next card
+                if k == 'y';
+                    yournumber = yournumber + cardsvalue(i);
+                    pause(0.5);
+                    break
+
+                    %Break the loop and allow it to load the next card
+                elseif k == 'n';
+                    answering = false;
+                    pause(0.5);
+                    break
+
+                    %If q is pressed, return to the main menu
+                elseif k == 'q'
                     running = false;
                     menurun = true;
                     clc
                     close all
                     return
+                end
+            end
+            if running == false
+                break
             end
         end
-    if running == false
-        break
     end
-    end
-end
 
-%Display Number at the end
+    %Display Number at the end
     clc
     if yournumber <=100 && yournumber>=1
-    fprintf("\n%s, I bet your number was %.i!\n", username,yournumber)
-    fprintf('Press Space to play again! Press q to return to menu\n')
-    xlabel([username,', your number was ',num2str(yournumber),'! Press Space to play again! Press q to return to menu'])
-    
+        fprintf("\n%s, I bet your number was %.i!\n", username,yournumber)
+        fprintf('Press Space to play again! Press q to return to menu\n')
+        xlabel([username,', your number was ',num2str(yournumber),'! Press Space to play again! Press q to return to menu'])
+
     else
-    fprintf('%s I bet you lied to me! Your number was NOT on one of those cards!!! OR maybe you didn''t say it was on any of the cards! \nPress Space to play again! Press q to return to menu\n',username)
-    xlabel('Lying is bad! Press Space to play again! Press q to return to menu.')
+        fprintf('%s I bet you lied to me! Your number was NOT on one of those cards!!! OR maybe you didn''t say it was on any of the cards! \nPress Space to play again! Press q to return to menu\n',username)
+        xlabel('Lying is bad! Press Space to play again! Press q to return to menu.')
     end
 
-%Prompt to play again
+    %Prompt to play again
 
-while true
+    while true
         k = getKeyboardInput(screenguess);
         if length(k) == 1
             if k == 'q'
@@ -108,8 +108,8 @@ while true
                 break
             end
         end
-end
-clc
+    end
+    clc
 
-%End main While loop
+    %End main While loop
 end
