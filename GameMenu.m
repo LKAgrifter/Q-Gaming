@@ -21,27 +21,29 @@ title('Q Games Launcher')
 % Make it search for mouse input and execute the games
 menurunning = true;
 
-while menurunning == true;
+while menurunning == true
+clc
+
 drawScene(screen,display);
 [x,y] = getMouseInput(screen);
 
-if x == 2 && y == 1;
+if x == 2 && y == 1
 close all
 fprintf('\nHave a good day %s!\n',username)
 menurunning = false;
 close all
 end
-if x == 2 && y == 2;
+if x == 2 && y == 2
     fprintf('Initiating Guessing Game!\n\n')
     pause(0.25)
     menurunning = false;
     menurunning = guessinggame(username);
 end
-if x == 1 && y == 2;
+if x == 1 && y == 2
     fprintf('Inititializing Minesweeper!\n\n')
     pause(0.25)
     menurunning = false;
-    menurunning = BombGame(username)
+    menurunning = BombGame(username);
 end
 
 end

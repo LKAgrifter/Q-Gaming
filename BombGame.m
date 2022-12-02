@@ -3,6 +3,9 @@ function menurun = bombgame(username);
 clc
 close all
 
+%Introduce the user
+fprintf('Hey %s, welcome to Minesweeper!\n',username)
+
 %Define Screen
 BombGameScreen = simpleGameEngine('MinesweeperSprite.png',16,16,5,[255,255,255]);
 
@@ -16,7 +19,7 @@ while playing == true
     %making sure the gridsize is bigger than 0
     gridsize = 0;
     while gridsize <= 0
-        gridsize= input("How big do you want the grid to be? ");
+        gridsize= input("How big do you want the grid to be? \n");
     end
 
     %making sure the numberbombs is greater than 0
@@ -30,14 +33,14 @@ while playing == true
 
     %Lets place some bombs
     for i = 1:1:numberbombs
-        x = randi(gridsize)
-        y = randi(gridsize)
-        BombGamedisplay(y,x) = 2
+        x = randi(gridsize);
+        y = randi(gridsize);
+        BombGamedisplay(y,x) = 2;
     end
 drawScene(BombGameScreen,BombGamedisplay)
 title('')
 
-numflags = 0 
+numflags = 0; 
     
     
     
@@ -49,59 +52,60 @@ numflags = 0
         
         %Let's uncover the bombs
         if BombGamedisplay(x,y) == 2 && z == 1
-            BombGamedisplay(x,y) = 8
-            ingame = false
-            win = false
+            BombGamedisplay(x,y) = 8;
+            ingame = false;
+            win = false;
 
         elseif  BombGamedisplay(x,y) == 2 && z == 3
             if numflags < numberbombs
-                BombGamedisplay(x,y) = 7
-                numflags = numflags + 1
+                BombGamedisplay(x,y) = 7;
+                numflags = numflags + 1;
             end
         
         %For the non-bomb spots        
         elseif BombGamedisplay(x,y) == 1 && z == 1
-            spotcounter = 0
-            %Checking around the spot
+            spotcounter = 0;
+            
+            %Checking around the spot to find what the number will be
             for a = -1:1:1
-                a = x + a
+                a = x + a;
                 for b = -1:1:1
-                    b = y + b
+                    b = y + b;
                     if a <= gridsize && b <= gridsize && a > 0 && b > 0
                         if BombGamedisplay(a,b) == 2 | BombGamedisplay(a,b) == 7 | BombGamedisplay(a,b) == 8
-                            spotcounter = spotcounter + 1
-                            BombGamedisplay
+                            spotcounter = spotcounter + 1;
                         end
                     end
                 end
             end
             
+            % Draw the clicked spot
             if spotcounter > 0
-                BombGamedisplay(x,y) = (8+spotcounter)
+                BombGamedisplay(x,y) = (8+spotcounter);
             else
-                BombGamedisplay(x,y) = (5)
+                BombGamedisplay(x,y) = (5);
             end
             drawScene(BombGameScreen,BombGamedisplay)
 
 
         elseif BombGamedisplay(x,y) == 1 && z == 3
             if numflags < numberbombs
-                BombGamedisplay(x,y) = 3
-                numflags = numflags + 1
+                BombGamedisplay(x,y) = 3;
+                numflags = numflags + 1;
             end
 
         end
         drawScene(BombGameScreen,BombGamedisplay)
 
     if numberbombs == sum(BombGamedisplay(:) == 7)
-        win = true
-        wincounter = wincounter + 1
-        ingame = false
+        win = true;
+        wincounter = wincounter + 1;
+        ingame = false;
     end
     drawScene(BombGameScreen,BombGamedisplay)
     end
     
-    %If we 
+    % Winning yes vs no, and then asking to play again or quit. 
     if win == false
         title('You Lost, Press Space to Play Again, or A to Return To Menu')
         k = getKeyboardInput(BombGameScreen)
@@ -114,14 +118,14 @@ numflags = 0
         elseif length(k) == 5
             if k == 'space'
                 fprintf('Ok we''re playing again!')
-                ingame = true
+                ingame = true;
                 close all
 
             end
         end
     elseif win == true
         title('You won! Press Space to Play Again, or A to Return To Menu')
-        k = getKeyboardInput(BombGameScreen)
+        k = getKeyboardInput(BombGameScreen);
         if length(k) == 1
             if k == 'q'
                 close all
@@ -131,7 +135,7 @@ numflags = 0
         elseif length(k) == 5
             if k == 'space'
                 fprintf('Ok we''re playing again!')
-                ingame = true
+                ingame = true;
                 close all
 
             end
