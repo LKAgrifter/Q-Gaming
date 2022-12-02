@@ -93,18 +93,13 @@ numflags = 0
         end
         drawScene(BombGameScreen,BombGamedisplay)
 
-%         if length(k) == 1
-%             if k == 'q'
-%                 menurun = true
-%                 close all
-%                 return
-%             end
-    end
     if numberbombs == sum(BombGamedisplay(:) == 7)
         win = true
         wincounter = wincounter + 1
+        ingame = false
     end
     drawScene(BombGameScreen,BombGamedisplay)
+    end
     
     %If we 
     if win == false
@@ -120,11 +115,28 @@ numflags = 0
             if k == 'space'
                 fprintf('Ok we''re playing again!')
                 ingame = true
+                close all
+
+            end
+        end
+    elseif win == true
+        title('You won! Press Space to Play Again, or A to Return To Menu')
+        k = getKeyboardInput(BombGameScreen)
+        if length(k) == 1
+            if k == 'q'
+                close all
+                clc
+                return
+            end
+        elseif length(k) == 5
+            if k == 'space'
+                fprintf('Ok we''re playing again!')
+                ingame = true
+                close all
+
             end
         end
     
     % End of small while loop
     end
-
-    drawScene(BombGameScreen,BombGamedisplay)
 end
