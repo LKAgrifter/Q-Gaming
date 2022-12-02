@@ -4,7 +4,7 @@ clc
 clear all
 close all
 
-menurunning = true
+menurunning = true;
 
 %%Game Setup
 %set the display up
