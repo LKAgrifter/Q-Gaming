@@ -25,7 +25,6 @@ while playing == true
     %Loop to make the game portion of the game work
     while true
         %Define variables
-        spotcounter = 0
         
         [x,y,z] = getMouseInput(BombGameScreen);
         
@@ -42,15 +41,16 @@ while playing == true
         
         %For the non-bomb spots        
         elseif BombGamedisplay(x,y) == 1 && z == 1
-            
+            spotcounter = 0
             %Checking around the spot
             for a = -1:1:1
-                a = x + a
+                d = x + a
                 for b = -1:1:1
-                    b = y + b
-                    if a < 10 && b < 10 && a > 0 && b > 0
-                        if BombGamedisplay(a,b) == 2 | BombGamedisplay(a,b) == 7
+                    e = y + b
+                    if d < 11 && e < 11 && d > 0 && e > 0
+                        if BombGamedisplay(d,e) == 2 | BombGamedisplay(d,e) == 7
                             spotcounter = spotcounter + 1
+                            BombGamedisplay
                         end
                     end
                 end
@@ -71,7 +71,8 @@ while playing == true
             end
 
         end
-        
+        drawScene(BombGameScreen,BombGamedisplay)
+
 %         if length(k) == 1
 %             if k == 'q'
 %                 menurun = true
@@ -81,6 +82,7 @@ while playing == true
     end
     % if numbombs = %sum(BombGamedisplay(:) == 7)
     %They won!
+    drawScene(BombGameScreen,BombGamedisplay)
     end
     drawScene(BombGameScreen,BombGamedisplay)
     input('Play Again?')
