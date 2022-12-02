@@ -120,7 +120,7 @@ while playing == true
 
     % Winning yes vs no, and then asking to play again or quit.
     if win == false
-        title('You Lost, Press Space to Play Again, or A to Return To Menu')
+        title('You Lost, Press Space to Play Again, or q to Return To Menu')
         k = getKeyboardInput(BombGameScreen);
         if length(k) == 1
             if k == 'q'
@@ -138,7 +138,7 @@ while playing == true
             end
         end
     elseif win == true
-        title('You won! Press Space to Play Again, or A to Return To Menu')
+        title('You won! Press Space to Play Again, or q to Return To Menu')
         k = getKeyboardInput(BombGameScreen);
         if length(k) == 1
             if k == 'q'
