@@ -36,7 +36,7 @@ yournumber = 0;
 cards_rand = cards(randperm(length(cards)));
 
 %show the cards
-for i = 1:1:length(cards);
+for i = 1:1:length(cards)
     %Clearing command window because I like the way it looks :)
     clc
     

@@ -49,5 +49,3 @@ fprintf('Welcome Back\n')
 
 end
 
-
-%% Handling Buttons

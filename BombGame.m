@@ -28,7 +28,7 @@ while playing == true
         numberbombs = input("How many bombs would you like to have? It must be smaller than the grid size squared. : ");
     end
     
-    numberbombs
+    numberbombs;
     %Intitializing the early game
     BombGamedisplay = ones(gridsize);
 
@@ -42,7 +42,6 @@ while playing == true
         end
         BombGamedisplay(y,x) = 2;
     end
-    BombGamedisplay
 drawScene(BombGameScreen,BombGamedisplay)
 title('')
 
@@ -67,6 +66,10 @@ numflags = 0;
                 BombGamedisplay(x,y) = 7;
                 numflags = numflags + 1;
             end
+        elseif BombGamedisplay(x,y) == 7 && z == 3
+            BombGamedisplay(x,y) = 2;
+            numflags = numflags - 1;
+
         
         %For the non-bomb spots        
         elseif BombGamedisplay(x,y) == 1 && z == 1
@@ -100,6 +103,9 @@ numflags = 0;
                 BombGamedisplay(x,y) = 3;
                 numflags = numflags + 1;
             end
+        elseif BombGamedisplay(x,y) == 3 && z == 3
+           BombGamedisplay(x,y) = 1;
+           numflags = numflags - 1;
 
         end
         drawScene(BombGameScreen,BombGamedisplay)
@@ -115,12 +121,12 @@ numflags = 0;
     % Winning yes vs no, and then asking to play again or quit. 
     if win == false
         title('You Lost, Press Space to Play Again, or A to Return To Menu')
-        k = getKeyboardInput(BombGameScreen)
+        k = getKeyboardInput(BombGameScreen);
         if length(k) == 1
             if k == 'q'
                 close all
                 clc
-                menurun = true
+                menurun = true;
                 return
             end
         elseif length(k) == 5
@@ -138,7 +144,7 @@ numflags = 0;
             if k == 'q'
                 close all
                 clc
-                menurun = true
+                menurun = true;
                 return
             end
         elseif length(k) == 5
