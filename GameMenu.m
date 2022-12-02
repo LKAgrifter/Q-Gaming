@@ -29,23 +29,29 @@ while menurunning == true
 
     if x == 2 && y == 1
         close all
-        fprintf('\nHave a good day %s!\n',username)
+        fprintf('Have a good day %s!\n',username)
         menurunning = false;
         close all
-    end
-    if x == 2 && y == 2
+    elseif x == 2 && y == 2
         fprintf('Initiating Guessing Game!\n\n')
         pause(0.25)
         menurunning = false;
         menurunning = guessinggame(username);
-    end
-    if x == 1 && y == 2
+    elseif x == 1 && y == 2
         fprintf('Inititializing Minesweeper!\n\n')
         pause(0.25)
         menurunning = false;
-        menurunning = BombGame(username)
+        menurunning = BombGame(username);
+    elseif x == 1 && y == 1
+        fprintf('Initializing Luck Game')
+        pause(.25)
+        menurunning = false;
+        menurunning = luckgame();
+        close all
     end
-    fprintf('Welcome Back\n')
+    if menurunning == true
+        fprintf('Welcome Back\n')
+    end
 
 end
 
