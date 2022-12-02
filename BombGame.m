@@ -18,8 +18,8 @@ while playing == true
 
     %making sure the gridsize is bigger than 0
     gridsize = 0;
-    while gridsize <= 1
-        gridsize= input("How big do you want the grid to be? It must be larger than 1. : ");
+    while gridsize <= 1 | gridsize > 12
+        gridsize= input("How big do you want the grid to be? It must be larger than 1 and no larger than 12. : ");
     end
 
     %making sure the numberbombs is greater than 0
