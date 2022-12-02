@@ -18,14 +18,14 @@ while playing == true
     
     %making sure the gridsize is bigger than 0
     gridsize = 0;
-    while gridsize <= 0
-        gridsize= input("How big do you want the grid to be? \n");
+    while gridsize <= 1 
+        gridsize= input("How big do you want the grid to be? It must be larger than 1",'i');
     end
 
     %making sure the numberbombs is greater than 0
     numberbombs = 0;
-    while numberbombs <= 0
-        numberbombs = input("How many bombs would you like to have? ");
+    while numberbombs <= 0 | numberbombs > gridsize^2
+        numberbombs = input("How many bombs would you like to have? It must be smaller than the grid size squared",'i');
     end
     
     %Intitializing the early game
@@ -87,7 +87,8 @@ numflags = 0;
             end
             drawScene(BombGameScreen,BombGamedisplay)
 
-
+        %If you right click, add a flag, as long as there are less flags
+        %than the number of bombs
         elseif BombGamedisplay(x,y) == 1 && z == 3
             if numflags < numberbombs
                 BombGamedisplay(x,y) = 3;
