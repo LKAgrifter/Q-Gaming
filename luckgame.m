@@ -251,6 +251,7 @@ pause(2)
 end
 
 while gameover == 1
+    if Game < 5
     fprintf ('nice job playing\n')
     fprintf('You made it to level %i\n', Game)
     fprintf('Game Over\n')
@@ -263,7 +264,7 @@ while gameover == 1
     fprintf ('WOW NICE JOB you made it far, nice guessing\n')
     fprintf('Game Over\n')
     img2 = imread('YouWin.jpg');
-    [sound1,sound2] = audioread('We Did It!.wav');
+    [sound1,sound2] = audioread('Mario_Kart_DS_Music_-_Win_Race_1st_Place_HD.wav');
     sound(sound1,sound2,16)
     image(img2)
     pause(3)

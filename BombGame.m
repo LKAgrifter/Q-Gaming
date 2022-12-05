@@ -16,7 +16,7 @@ wincounter = 0;
 
 %import sounds
 [explosion, explosion2] = audioread('mixkit-epic-impact-afar-explosion-2782.wav');
-[click,click2] = audioread('Click - Sound Effect (HD).wav')
+[click,click2] = audioread('Click - Sound Effect (HD).wav');
 
 while playing == true
 
@@ -148,7 +148,7 @@ while playing == true
             end
         end
     elseif win == true
-        title('You won! Press Space to Play Again, or q to Return To Menu')
+        title('You won! Press Space to Play Again, or q to Return To Menu');
         [sound1,sound2]=audioread('Yayyy! Sound Effect.wav');
         sound(sound1,sound2,16);
         
