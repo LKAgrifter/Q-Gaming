@@ -14,6 +14,10 @@ playing = true;
 ingame = true;
 wincounter = 0;
 
+%import sounds
+[explosion, explosion2] = audioread('mixkit-epic-impact-afar-explosion-2782.wav');
+[click,click2] = audioread('Click - Sound Effect (HD).wav')
+
 while playing == true
 
     %making sure the gridsize is bigger than 0
@@ -65,10 +69,12 @@ while playing == true
             if numflags < numberbombs
                 BombGamedisplay(x,y) = 7;
                 numflags = numflags + 1;
+                sound(click,click2,16);
             end
         elseif BombGamedisplay(x,y) == 7 && z == 3
             BombGamedisplay(x,y) = 2;
             numflags = numflags - 1;
+            sound(click,click2,16);
 
 
             %For the non-bomb spots
@@ -95,6 +101,7 @@ while playing == true
                 BombGamedisplay(x,y) = (5);
             end
             drawScene(BombGameScreen,BombGamedisplay)
+            sound(click,click2,16);
 
             %If you right click, add a flag, as long as there are less flags
             %than the number of bombs
@@ -102,10 +109,12 @@ while playing == true
             if numflags < numberbombs
                 BombGamedisplay(x,y) = 3;
                 numflags = numflags + 1;
+                sound(click,click2,16);
             end
         elseif BombGamedisplay(x,y) == 3 && z == 3
             BombGamedisplay(x,y) = 1;
             numflags = numflags - 1;
+            sound(click,click2,16);
 
         end
         drawScene(BombGameScreen,BombGamedisplay)
@@ -120,6 +129,7 @@ while playing == true
 
     % Winning yes vs no, and then asking to play again or quit.
     if win == false
+        sound(explosion, explosion2, 16);
         title('You Lost, Press Space to Play Again, or q to Return To Menu')
         k = getKeyboardInput(BombGameScreen);
         if length(k) == 1
@@ -139,6 +149,9 @@ while playing == true
         end
     elseif win == true
         title('You won! Press Space to Play Again, or q to Return To Menu')
+        [sound1,sound2]=audioread('Yayyy! Sound Effect.wav');
+        sound(sound1,sound2,16);
+        
         k = getKeyboardInput(BombGameScreen);
         if length(k) == 1
             if k == 'q'

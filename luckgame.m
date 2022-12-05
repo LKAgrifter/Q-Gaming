@@ -256,10 +256,15 @@ while gameover == 1
     fprintf('Game Over\n')
     img = imread('GameOver34.png');
     image(img)
+    [sound1,sound2] = audioread('Willy Wonka： ＂YOU LOSE! GOOD DAY SIR!＂.wav');
+    sound(sound1,sound2,16)
+    pause(3)
     if Game >= 5
     fprintf ('WOW NICE JOB you made it far, nice guessing\n')
     fprintf('Game Over\n')
     img2 = imread('YouWin.jpg');
+    [sound1,sound2] = audioread('We Did It!.wav');
+    sound(sound1,sound2,16)
     image(img2)
     pause(3)
     break

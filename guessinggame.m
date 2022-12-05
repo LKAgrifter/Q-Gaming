@@ -72,6 +72,10 @@ while running == true;
                     clc
                     close all
                     return
+                else
+                    [sound1,sound2]= audioread('Windows Error (Sound effect).wav');
+                    sound(sound1,sound2,16);
+                
                 end
             end
             if running == false
