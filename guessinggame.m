@@ -39,7 +39,8 @@ while running == true;
     for i = 1:1:length(cards)
         %Clearing command window because I like the way it looks :)
         clc
-
+        
+        %Display a random card
         i = cards_rand(i);
         display = cardspostion(i);
         drawScene(screenguess,display);
@@ -72,6 +73,8 @@ while running == true;
                     clc
                     close all
                     return
+                
+                    %For bad clicks, play windows error noise
                 else
                     [sound1,sound2]= audioread('Windows Error (Sound effect).wav');
                     sound(sound1,sound2,16);
@@ -90,7 +93,8 @@ while running == true;
         fprintf("\n%s, I bet your number was %.i!\n", username,yournumber)
         fprintf('Press Space to play again! Press q to return to menu\n')
         xlabel([username,', your number was ',num2str(yournumber),'! Press Space to play again! Press q to return to menu'])
-
+    
+        %For if the number is somehow above 100
     else
         fprintf('%s I bet you lied to me! Your number was NOT on one of those cards!!! OR maybe you didn''t say it was on any of the cards! \nPress Space to play again! Press q to return to menu\n',username)
         xlabel('Lying is bad! Press Space to play again! Press q to return to menu.')
