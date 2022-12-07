@@ -84,7 +84,7 @@ while playing == true
         elseif BombGamedisplay(x,y) == 1 && z == 1
             spotcounter = 0;
 
-            %Checking around the mouse inouted spot to find what the number will be
+            %Checking around the clicked spot to find what the number will be
             %this generates the numbers by indexing where the bombs will
             %be in proximity to where the grid is hit.
             for a = -1:1:1
