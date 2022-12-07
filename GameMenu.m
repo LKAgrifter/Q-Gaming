@@ -24,15 +24,17 @@ title('Q Games Launcher')
 
 
 
-% Make it search for mouse input and execute the games
 menurunning = true;
 
+%Make it a continously running loop
 while menurunning == true
     clc
 
     drawScene(screen,display);
+    % Make it search for mouse input and execute the games
     [x,y] = getMouseInput(screen);
-
+    
+    %Click check for exit button
     if x == 2 && y == 1
         close all
         fprintf('Have a good day %s!\n',username)
@@ -40,23 +42,29 @@ while menurunning == true
         sound(shutdown,shutdown2,16)
         pause(2)
         close all
+    %Click check for number guesser
     elseif x == 2 && y == 2
         fprintf('Initiating Guessing Game!\n\n')
         pause(0.25)
         menurunning = false;
         menurunning = guessinggame(username);
+    %Click check for minesweeper
     elseif x == 1 && y == 2
         fprintf('Inititializing Minesweeper!\n\n')
         pause(0.25)
         menurunning = false;
         menurunning = BombGame(username);
+    
+    %Click check for Roulette
     elseif x == 1 && y == 1
-        fprintf('Initializing Luck Game')
+        fprintf('Initializing Roulette Luck Game')
         pause(.25)
         menurunning = false;
         menurunning = luckgame();
         close all
     end
+    
+    %Welcome back to menu after game is exited 
     if menurunning == true
         fprintf('Welcome Back\n')
     end

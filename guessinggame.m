@@ -57,12 +57,12 @@ while running == true;
                 %the loop to load the next card
                 if k == 'y';
                     yournumber = yournumber + cardsvalue(i);
-                    pause(0.5);
+                    pause(0.25);
                     break
 
                     %Break the loop and allow it to load the next card
                 elseif k == 'n';
-                    pause(0.5);
+                    pause(0.25);
                     break
 
                     %If q is pressed, return to the main menu
