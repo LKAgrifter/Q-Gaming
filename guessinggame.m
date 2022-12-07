@@ -62,7 +62,6 @@ while running == true;
 
                     %Break the loop and allow it to load the next card
                 elseif k == 'n';
-                    answering = false;
                     pause(0.5);
                     break
 
